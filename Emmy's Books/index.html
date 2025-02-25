@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Specifies the character encoding for the HTML document -->
+    <meta charset="UTF-8">
+    <!-- Sets the viewport to make the website responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect to Google Fonts to improve loading performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Link to the Google Font "Dancing Script" -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <!-- Title of the HTML document -->
+    <title>Emmy's Personal Library</title>
+    <!-- Internal CSS styles -->
+    <style>
+        /* Styles for the body element */
+        body {
+            position: relative; /* Sets the position of the body element */
+            font-family: 'Dancing Script', cursive; /* Sets the font family */
+            margin: 0; /* Removes default margin */
+            color: black; /* Sets the text color */
+            animation: fadeIn 3s ease-in-out forwards; /* Applies fadeIn animation */
+            font-size: 1.5em; /* Sets the font size */
+            background-color: rgba(255, 255, 255, 0.8); /* Sets the background color with opacity */
+            border-radius: 5px; /* Rounds the corners */
+            border: 1px solid black; /* Adds a black border */
+        }
+        /* Styles for the body background image */
+        body::before {
+            content: ""; /* Adds an empty content before the body */
+            position: fixed; /* Fixes the position */
+            top: 0; /* Sets the top position */
+            left: 0; /* Sets the left position */
+            right: 0; /* Sets the right position */
+            bottom: 0; /* Sets the bottom position */
+            background-image: url('Images/wallpaper.jpg'); /* Sets the background image */
+            background-size: cover; /* Covers the entire area */
+            background-repeat: no-repeat; /* Prevents repeating the image */
+            background-position: center; /* Centers the image */
+            opacity: 0.3; /* Sets the opacity */
+            z-index: -1; /* Places the image behind other elements */
+            animation: fadeIn 3s ease-in-out forwards; /* Applies fadeIn animation */
+        }
+        /* Keyframes for the fadeIn animation */
+        @keyframes fadeIn {
+            to {
+                opacity: 1; /* Sets the final opacity */
+            }
+        }
+        /* Styles for the main heading */
+        .heading1 {
+            text-align: center; /* Centers the text */
+            font-size: 2.5em; /* Sets the font size */
+            font-weight: bolder; /* Makes the text bold */
+            opacity: 1; /* Sets the opacity */
+        }
+        /* Styles for the header container */
+        .header-container {
+            position: relative; /* Sets the position */
+            animation: fadeIn 3s ease-in-out forwards; /* Applies fadeIn animation */
+        }
+        /* Styles for the header element */
+        header {
+            display: flex; /* Uses flexbox layout */
+            flex-direction: column; /* Arranges items in a column */
+            align-items: center; /* Centers items horizontally */
+            border: 2px solid black; /* Adds a black border */
+            padding: 20px; /* Adds padding */
+            box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+            animation: fadeIn 3s ease-in-out forwards; /* Applies fadeIn animation */
+            background-color: rgba(255, 255, 255, 0.8); /* Sets the background color with opacity */
+            border-radius: 5px; /* Rounds the corners */
+            border: 1px solid black; /* Adds a black border */
+            position: relative; /* Sets the position to relative */
+        }
+        /* Styles for the navigation bar */
+        nav {
+            display: flex; /* Uses flexbox layout */
+            justify-content: center; /* Centers items horizontally */
+            align-items: center; /* Centers items vertically */
+            margin-top: 20px; /* Adds top margin */
+        }
+        /* Styles for each navigation item */
+        .nav-item {
+            position: relative; /* Sets the position */
+            margin: 0 20px; /* Adds horizontal margin */
+            cursor: pointer; /* Changes the cursor to pointer */
+        }
+        /* Styles for the links inside the navigation */
+        .nav-item a {
+            color: black; /* Sets the text color */
+            text-decoration: none; /* Removes underline */
+            font-size: 1.5em; /* Sets the font size */
+        }
+        /* Change background color on hover */
+        .nav-item a:hover {
+            background-color: #ddd; /* Changes background color */
+        }
+        /* Styles for the content area */
+        .content {
+            margin: 20px; /* Adds margin */
+            font-size: 1.5em; /* Sets the font size */
+            background-color: rgba(255, 255, 255, 0.8); /* Sets the background color with opacity */
+            border: 2px solid black; /* Adds a black border */
+            position: relative; /* Sets the position to relative */
+        }
+        /* Styles for the image */
+        .content img {
+            position: absolute; /* Sets the position to absolute */
+            right: 0; /* Aligns the image to the right */
+            top: 0; /* Aligns the image to the top */
+            height: 125px; /* Sets the height of the image */
+            margin: 10px; /* Adds margin */
+        }
+        /* Styles for the home button */
+        .home-button {
+            position: absolute; /* Sets the position to absolute */
+            right: 20px; /* Aligns the button to the right */
+            top: 20px; /* Aligns the button to the top */
+            padding: 10px 20px; /* Adds padding */
+            background-color: #f1f1f1; /* Sets the background color */
+            border: 1px solid black; /* Adds a black border */
+            border-radius: 5px; /* Rounds the corners */
+            cursor: pointer; /* Changes the cursor to pointer */
+            text-decoration: none; /* Removes underline */
+            color: black; /* Sets the text color */
+            font-size: 1.5em; /* Sets the font size */
+        }
+        .home-button:hover {
+            background-color: #ddd; /* Changes background color on hover */
+        }
+    </style>
+</head>
+<body>
+<!-- Container for the header -->
+<div class="header-container">
+    <header>
+        <!-- Main heading of the page -->
+        <p class="heading1">Emmy's Personal Library</p>
+        <!-- Home button -->
+        <a href="index.html" class="home-button">Home</a>
+        <!-- Navigation bar with dropdown menus -->
+        <nav>
+            <!-- Navigation item for authors -->
+            <div class="nav-item">
+                <a href="Authors.html">Author</a>
+            </div>
+            <!-- Navigation item for genres -->
+            <div class="nav-item">
+                <a href="Genre.html">Genre</a>
+            </div>
+        </nav>
+    </header>
+</div>
+<!-- Container for the dynamic content -->
+<div class="content" id="content">
+    <p>This website is a labor of love for my beautiful wife, Emmy. I hope she always knows how I feel about her. Hoping I can buy you another million books my love.</p>
+</div>
+<script>
+    // Function to show content based on the selected section
+    function showContent(section) {
+        var content = document.getElementById('content'); // Gets the content element
+        var xhr = new XMLHttpRequest(); // Creates a new XMLHttpRequest object
+        xhr.open('GET', section + '.html', true); // Initializes a GET request
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                content.innerHTML = xhr.responseText; // Sets the content to the response text
+            }
+        };
+        xhr.send(); // Sends the request
+    }
+</script>
+</body>
+</html>

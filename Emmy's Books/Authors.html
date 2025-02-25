@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Specifies the character encoding for the HTML document -->
+    <meta charset="UTF-8">
+    <!-- Sets the viewport to make the website responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect to Google Fonts to improve loading performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Link to the Google Font "Dancing Script" -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <!-- Title of the HTML document -->
+    <title>Emmy's Personal Library</title>
+    <!-- Internal CSS styles -->
+    <style>
+        /* Styles for the body element */
+        body {
+            position: relative; /* Sets the position of the body element */
+            font-family: 'Dancing Script', cursive; /* Sets the font family */
+            margin: 0; /* Removes default margin */
+            color: black; /* Sets the text color */
+            font-size: 1.5em; /* Sets the font size */
+            background-color: rgba(255, 255, 255, 0.8); /* Sets the background color with opacity */
+            border-radius: 5px; /* Rounds the corners */
+            border: 1px solid black; /* Adds a black border */
+        }
+        /* Styles for the body background image */
+        body::before {
+            content: ""; /* Adds an empty content before the body */
+            position: fixed; /* Fixes the position */
+            top: 0; /* Sets the top position */
+            left: 0; /* Sets the left position */
+            right: 0; /* Sets the right position */
+            bottom: 0; /* Sets the bottom position */
+            background-image: url('Images/wallpaper.jpg'); /* Sets the background image */
+            background-size: cover; /* Covers the entire area */
+            background-repeat: no-repeat; /* Prevents repeating the image */
+            background-position: center; /* Centers the image */
+            opacity: 1; /* Sets the opacity to full */
+            z-index: -1; /* Places the image behind other elements */
+        }
+        /* Styles for the main heading */
+        .heading1 {
+            text-align: center; /* Centers the text */
+            font-size: 2.5em; /* Sets the font size */
+            font-weight: bolder; /* Makes the text bold */
+            opacity: 1; /* Sets the opacity */
+        }
+        /* Styles for the header container */
+        .header-container {
+            position: relative; /* Sets the position */
+        }
+        /* Styles for the header element */
+        header {
+            display: flex; /* Uses flexbox layout */
+            flex-direction: column; /* Arranges items in a column */
+            align-items: center; /* Centers items horizontally */
+            border: 2px solid black; /* Adds a black border */
+            padding: 20px; /* Adds padding */
+            box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+            background-color: rgba(255, 255, 255, 0.8); /* Sets the background color with opacity */
+            border-radius: 5px; /* Rounds the corners */
+            border: 1px solid black; /* Adds a black border */
+            position: relative; /* Sets the position to relative */
+        }
+        /* Styles for the navigation bar */
+        nav {
+            display: flex; /* Uses flexbox layout */
+            justify-content: center; /* Centers items horizontally */
+            align-items: center; /* Centers items vertically */
+            margin-top: 20px; /* Adds top margin */
+        }
+        /* Styles for each navigation item */
+        .nav-item {
+            position: relative; /* Sets the position */
+            margin: 0 20px; /* Adds horizontal margin */
+            cursor: pointer; /* Changes the cursor to pointer */
+        }
+        /* Styles for the links inside the navigation */
+        .nav-item a {
+            color: black; /* Sets the text color */
+            text-decoration: none; /* Removes underline */
+            font-size: 1.5em; /* Sets the font size */
+        }
+        /* Change background color on hover */
+        .nav-item a:hover {
+            background-color: #ddd; /* Changes background color */
+        }
+        /* Styles for the content area */
+        .content {
+            margin: 20px; /* Adds margin */
+            font-size: 1.5em; /* Sets the font size */
+            background-color: rgba(255, 255, 255, 0.8); /* Sets the background color with opacity */
+            border: 2px solid black; /* Adds a black border */
+            position: relative; /* Sets the position to relative */
+        }
+        /* Styles for the image */
+        .content img {
+            position: absolute; /* Sets the position to absolute */
+            right: 0; /* Aligns the image to the right */
+            top: 0; /* Aligns the image to the top */
+            height: 125px; /* Sets the height of the image */
+            margin: 10px; /* Adds margin */
+        }
+        /* Styles for the home button */
+        .home-button {
+            position: absolute; /* Sets the position to absolute */
+            right: 20px; /* Aligns the button to the right */
+            top: 20px; /* Aligns the button to the top */
+            padding: 10px 20px; /* Adds padding */
+            background-color: #f1f1f1; /* Sets the background color */
+            border: 1px solid black; /* Adds a black border */
+            border-radius: 5px; /* Rounds the corners */
+            cursor: pointer; /* Changes the cursor to pointer */
+            text-decoration: none; /* Removes underline */
+            color: black; /* Sets the text color */
+            font-size: 1.5em; /* Sets the font size */
+        }
+        .home-button:hover {
+            background-color: #ddd; /* Changes background color on hover */
+        }
+        /* Styles for the add author button */
+        .add-author-button {
+            display: block; /* Displays as block */
+            margin: 20px auto; /* Centers the button horizontally */
+            padding: 5px 10px; /* Adds padding */
+            background-color: #f1f1f1; /* Sets the background color */
+            border: 1px solid black; /* Adds a black border */
+            border-radius: 5px; /* Rounds the corners */
+            cursor: pointer; /* Changes the cursor to pointer */
+            text-decoration: none; /* Removes underline */
+            color: black; /* Sets the text color */
+            font-size: 0.75em; /* Sets the font size */
+        }
+        .add-author-button:hover {
+            background-color: #ddd; /* Changes background color on hover */
+        }
+        /* Styles for the delete author button */
+        .delete-author-button {
+            display: block; /* Displays as block */
+            margin: 20px auto; /* Centers the button horizontally */
+            padding: 5px 10px; /* Adds padding */
+            background-color: #f1f1f1; /* Sets the background color */
+            border: 1px solid black; /* Adds a black border */
+            border-radius: 5px; /* Rounds the corners */
+            cursor: pointer; /* Changes the cursor to pointer */
+            text-decoration: none; /* Removes underline */
+            color: black; /* Sets the text color */
+            font-size: 0.75em; /* Sets the font size */
+        }
+        .delete-author-button:hover {
+            background-color: #ddd; /* Changes background color on hover */
+        }
+    </style>
+</head>
+<body>
+<!-- Container for the header -->
+<div class="header-container">
+    <header>
+        <!-- Main heading of the page -->
+        <p class="heading1">Emmy's Personal Library</p>
+        <!-- Home button -->
+        <a href="index.html" class="home-button">Home</a>
+        <!-- Navigation bar with dropdown menus -->
+        <nav>
+            <!-- Navigation item for authors -->
+            <div class="nav-item">
+                <a href="Authors.html">Author</a>
+            </div>
+            <!-- Navigation item for Genre -->
+            <div class="nav-item">
+                <a href="Genre.html">Genre</a>
+            </div>
+        </nav>
+    </header>
+</div>
+<!-- Container for the dynamic content -->
+<div class="content" id="content">
+    <h2>A</h2>
+    <ul id="A">
+        <li></li>
+    </ul>
+    <h2>B</h2>
+    <ul id="B">
+        <li></li>
+    </ul>
+    <h2>C</h2>
+    <ul id="C">
+        <li></li>
+    </ul>
+    <h2>D</h2>
+    <ul id="D">
+        <li></li>
+    </ul>
+    <h2>E</h2>
+    <ul id="E">
+        <li></li>
+    </ul>
+    <h2>F</h2>
+    <ul id="F">
+        <li></li>
+    </ul>
+    <h2>G</h2>
+    <ul id="G">
+        <li></li>
+    </ul>
+    <h2>H</h2>
+    <ul id="H">
+        <li></li>
+    </ul>
+    <h2>I</h2>
+    <ul id="I">
+        <li></li>
+    </ul>
+    <h2>J</h2>
+    <ul id="J">
+        <li></li>
+    </ul>
+    <h2>K</h2>
+    <ul id="K">
+        <li></li>
+    </ul>
+    <h2>L</h2>
+    <ul id="L">
+        <li></li>
+    </ul>
+    <h2>M</h2>
+    <ul id="M">
+        <li></li>
+    </ul>
+    <h2>N</h2>
+    <ul id="N">
+        <li></li>
+    </ul>
+    <h2>O</h2>
+    <ul id="O">
+        <li></li>
+    </ul>
+    <h2>P</h2>
+    <ul id="P">
+        <li></li>
+    </ul>
+    <h2>Q</h2>
+    <ul id="Q">
+        <li></li>
+    </ul>
+    <h2>R</h2>
+    <ul id="R">
+        <li></li>
+    </ul>
+    <h2>S</h2>
+    <ul id="S">
+        <li></li>
+    </ul>
+    <h2>T</h2>
+    <ul id="T">
+        <li></li>
+    </ul>
+    <h2>U</h2>
+    <ul id="U">
+        <li></li>
+    </ul>
+    <h2>V</h2>
+    <ul id="V">
+        <li></li>
+    </ul>
+    <h2>W</h2>
+    <ul id="W">
+        <li></li>
+    </ul>
+    <h2>X</h2>
+    <ul id="X">
+        <li></li>
+    </ul>
+    <h2>Y</h2>
+    <ul id="Y">
+        <li></li>
+    </ul>
+    <h2>Z</h2>
+    <ul id="Z">
+        <li></li>
+    </ul>
+</div>
+<!-- Add author and delete author buttons -->
+<div style="text-align: center;">
+    <button class="add-author-button" onclick="addAuthor()">Add Author</button>
+    <button class="delete-author-button" onclick="deleteAuthor()">Delete Author</button>
+</div>
+<script>
+    // Function to show content based on the selected section
+    function showContent(section) {
+        var content = document.getElementById('content'); // Gets the content element
+        var xhr = new XMLHttpRequest(); // Creates a new XMLHttpRequest object
+        xhr.open('GET', section + '.html', true); // Initializes a GET request
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                content.innerHTML = xhr.responseText; // Sets the content to the response text
+            }
+        };
+        xhr.send(); // Sends the request
+    }
+
+    // Function to add a new author
+    function addAuthor() {
+        var authorName = prompt("Enter the author's name (First Last):");
+        if (authorName) {
+            var fileName = prompt("Enter the file name for the author (e.g., authorName.html):");
+            if (fileName) {
+                var lastName = authorName.split(' ').pop(); // Get the last name
+                var firstLetter = lastName.charAt(0).toUpperCase();
+                var authors = JSON.parse(localStorage.getItem('authors')) || {};
+                if (!authors[firstLetter]) {
+                    authors[firstLetter] = [];
+                }
+                authors[firstLetter].push({ name: authorName, file: fileName });
+                localStorage.setItem('authors', JSON.stringify(authors));
+                renderAuthors();
+            }
+        }
+    }
+
+    // Function to render authors from local storage
+    function renderAuthors() {
+        var authors = JSON.parse(localStorage.getItem('authors')) || {};
+        for (var letter in authors) {
+            var ul = document.getElementById(letter);
+            ul.innerHTML = ''; // Clear existing content
+            authors[letter].forEach(function(author) {
+                var li = document.createElement('li');
+                li.className = 'author-item';
+                var a = document.createElement('a');
+                a.href = author.file;
+                a.textContent = author.name;
+                a.style.color = 'black';
+                a.style.textDecoration = 'none';
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+        }
+    }
+
+    // Function to delete an author
+    function deleteAuthor() {
+        var authors = JSON.parse(localStorage.getItem('authors')) || {};
+        var authorList = [];
+        for (var letter in authors) {
+            authors[letter].forEach(function(author) {
+                authorList.push(author.name);
+            });
+        }
+        var authorName = prompt("Type the name of the author to delete:\n"("\n"));
+        if (authorName && confirm("Are you sure you want to delete " + authorName + "?")) {
+            for (var letter in authors) {
+                authors[letter] = authors[letter].filter(function(author) {
+                    return author.name !== authorName;
+                });
+            }
+            localStorage.setItem('authors', JSON.stringify(authors));
+            renderAuthors();
+        }
+    }
+
+    // Render authors on page load
+    document.addEventListener('DOMContentLoaded', renderAuthors);
+</script>
+</body>
+</html>

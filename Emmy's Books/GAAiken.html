@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Specifies the character encoding for the HTML document -->
+    <meta charset="UTF-8">
+    <!-- Sets the viewport to make the website responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect to Google Fonts to improve loading performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Link to the Google Font "Dancing Script" -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <!-- Title of the HTML document -->
+    <title>Emmy's Personal Library</title>
+    <!-- Internal CSS styles -->
+    <style>
+        /* Styles for the body element */
+        body {
+            position: relative; /* Sets the position of the body element */
+            font-family: 'Dancing Script', cursive; /* Sets the font family */
+            margin: 0; /* Removes default margin */
+            color: black; /* Sets the text color */
+            animation: fadeIn 3s ease-in-out forwards; /* Applies fadeIn animation */
+            font-size: 1.5em; /* Sets the font size */
+            background-color: rgba(255, 255, 255, 0.8); /* Sets the background color with opacity */
+            border-radius: 5px; /* Rounds the corners */
+            border: 1px solid black; /* Adds a black border */
+        }
+        /* Styles for the body background image */
+        body::before {
+            content: ""; /* Adds an empty content before the body */
+            position: fixed; /* Fixes the position */
+            top: 0; /* Sets the top position */
+            left: 0; /* Sets the left position */
+            right: 0; /* Sets the right position */
+            bottom: 0; /* Sets the bottom position */
+            background-image: url('Images/wallpaper.jpg'); /* Sets the background image */
+            background-size: cover; /* Covers the entire area */
+            background-repeat: no-repeat; /* Prevents repeating the image */
+            background-position: center; /* Centers the image */
+            opacity: 0.3; /* Sets the opacity */
+            z-index: -1; /* Places the image behind other elements */
+            animation: fadeIn 3s ease-in-out forwards; /* Applies fadeIn animation */
+        }
+        /* Keyframes for the fadeIn animation */
+        @keyframes fadeIn {
+            to {
+                opacity: 1; /* Sets the final opacity */
+            }
+        }
+        /* Styles for the main heading */
+        .heading1 {
+            text-align: center; /* Centers the text */
+            font-size: 2.5em; /* Sets the font size */
+            font-weight: bolder; /* Makes the text bold */
+            opacity: 1; /* Sets the opacity */
+        }
+        /* Styles for the header container */
+        .header-container {
+            position: relative; /* Sets the position */
+            animation: fadeIn 3s ease-in-out forwards; /* Applies fadeIn animation */
+        }
+        /* Styles for the header element */
+        header {
+            display: flex; /* Uses flexbox layout */
+            flex-direction: column; /* Arranges items in a column */
+            align-items: center; /* Centers items horizontally */
+            border: 2px solid black; /* Adds a black border */
+            padding: 20px; /* Adds padding */
+            box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+            animation: fadeIn 3s ease-in-out forwards; /* Applies fadeIn animation */
+            background-color: rgba(255, 255, 255, 0.8); /* Sets the background color with opacity */
+            border-radius: 5px; /* Rounds the corners */
+            border: 1px solid black; /* Adds a black border */
+            position: relative; /* Sets the position to relative */
+        }
+        /* Styles for the navigation bar */
+        nav {
+            display: flex; /* Uses flexbox layout */
+            justify-content: center; /* Centers items horizontally */
+            align-items: center; /* Centers items vertically */
+            margin-top: 20px; /* Adds top margin */
+        }
+        /* Styles for each navigation item */
+        .nav-item {
+            position: relative; /* Sets the position */
+            margin: 0 20px; /* Adds horizontal margin */
+            cursor: pointer; /* Changes the cursor to pointer */
+        }
+        /* Styles for the links inside the navigation */
+        .nav-item a {
+            color: black; /* Sets the text color */
+            text-decoration: none; /* Removes underline */
+            font-size: 1.5em; /* Sets the font size */
+        }
+        /* Change background color on hover */
+        .nav-item a:hover {
+            background-color: #ddd; /* Changes background color */
+        }
+        /* Styles for the content area */
+        .content {
+            margin: 20px; /* Adds margin */
+            font-size: 1.5em; /* Sets the font size */
+            background-color: rgba(255, 255, 255, 0.8); /* Sets the background color with opacity */
+            border: 2px solid black; /* Adds a black border */
+            position: relative; /* Sets the position to relative */
+        }
+        /* Styles for the image */
+        .content img {
+            position: absolute; /* Sets the position to absolute */
+            right: 0; /* Aligns the image to the right */
+            top: 0; /* Aligns the image to the top */
+            height: 125px; /* Sets the height of the image */
+            margin: 10px; /* Adds margin */
+        }
+        /* Styles for the home button */
+        .home-button {
+            position: absolute; /* Sets the position to absolute */
+            right: 20px; /* Aligns the button to the right */
+            top: 20px; /* Aligns the button to the top */
+            padding: 10px 20px; /* Adds padding */
+            background-color: #f1f1f1; /* Sets the background color */
+            border: 1px solid black; /* Adds a black border */
+            border-radius: 5px; /* Rounds the corners */
+            cursor: pointer; /* Changes the cursor to pointer */
+            text-decoration: none; /* Removes underline */
+            color: black; /* Sets the text color */
+            font-size: 1.5em; /* Sets the font size */
+        }
+        .home-button:hover {
+            background-color: #ddd; /* Changes background color on hover */
+        }
+        /* Styles for the list items */
+        .content ul {
+            list-style-type: none; /* Removes default list style */
+            padding: 0; /* Removes default padding */
+        }
+        .content li {
+            display: flex; /* Uses flexbox layout */
+            justify-content: space-between; /* Spaces items evenly */
+            align-items: center; /* Centers items vertically */
+            padding: 5px 0; /* Adds vertical padding */
+        }
+        /* Styles for the toggle switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+<!-- Container for the header -->
+<div class="header-container">
+    <header>
+        <!-- Main heading of the page -->
+        <p class="heading1">Emmy's Personal Library</p>
+        <!-- Home button -->
+        <a href="index.html" class="home-button">Home</a>
+        <!-- Navigation bar with dropdown menus -->
+        <nav>
+            <!-- Navigation item for authors -->
+            <div class="nav-item">
+                <a href="Authors.html">Author</a>
+            </div>
+            <!-- Navigation item for genres -->
+            <div class="nav-item">
+                <a href="Genre.html">Genre</a>
+            </div>
+        </nav>
+        <!-- Filter dropdown -->
+        <div class="nav-item">
+            <label for="filter">Filter: </label>
+            <select id="filter" onchange="filterBooks()">
+                <option value="all">All</option>
+                <option value="owned">Owned</option>
+                <option value="not-owned">Not Owned</option>
+            </select>
+        </div>
+    </header>
+</div>
+<!-- Container for the dynamic content -->
+<div class="content" id="content">
+    <h1>G.A. Aiken</h1>
+    <img src="Images/GAAiken.jpg" alt="G.A. Aiken">
+    <p>G.A. Aiken is a bestselling author known for her thrilling fantasy and paranormal romance novels. Her captivating series, such as the Dragon Kin and The Scarred Earth Saga, transport readers into worlds filled with fierce dragons, powerful warriors, and epic battles. With her engaging storytelling and unforgettable characters, G.A. Aiken's books are a must-read for fans of action-packed and romantic adventures.</p>
+    
+    <h2>Dragon Kin Series</h2>
+    <ul>
+        <li>Dragon Actually <label class="switch"><input type="checkbox" id="dragon-actually"><span class="slider round"></span></label></li>
+        <li>About a Dragon <label class="switch"><input type="checkbox" id="about-a-dragon"><span class="slider round"></span></label></li>
+        <li>What a Dragon Should Know <label class="switch"><input type="checkbox" id="what-a-dragon-should-know"><span class="slider round"></span></label></li>
+        <li>Last Dragon Standing <label class="switch"><input type="checkbox" id="last-dragon-standing"><span class="slider round"></span></label></li>
+        <li>The Dragon Who Loved Me <label class="switch"><input type="checkbox" id="the-dragon-who-loved-me"><span class="slider round"></span></label></li>
+        <li>How to Drive a Dragon Crazy <label class="switch"><input type="checkbox" id="how-to-drive-a-dragon-crazy"><span class="slider round"></span></label></li>
+        <li>Light My Fire <label class="switch"><input type="checkbox" id="light-my-fire"><span class="slider round"></span></label></li>
+        <li>Feel the Burn <label class="switch"><input type="checkbox" id="feel-the-burn"><span class="slider round"></span></label></li>
+        <li>Bring the Heat <label class="switch"><input type="checkbox" id="bring-the-heat"><span class="slider round"></span></label></li>
+    </ul>
+    
+    <h2>Dragon Kin Novellas</h2>
+    <ul>
+        <li>Can't Get Enough <label class="switch"><input type="checkbox" id="cant-get-enough"><span class="slider round"></span></label></li>
+        <li>A Tale of Two Dragons <label class="switch"><input type="checkbox" id="a-tale-of-two-dragons"><span class="slider round"></span></label></li>
+        <li>Dragon on Top <label class="switch"><input type="checkbox" id="dragon-on-top"><span class="slider round"></span></label></li>
+    </ul>
+    
+    <h2>The Scarred Earth Saga</h2>
+    <ul>
+        <li>The Blacksmith Queen <label class="switch"><input type="checkbox" id="the-blacksmith-queen"><span class="slider round"></span></label></li>
+        <li>The Princess Knight <label class="switch"><input type="checkbox" id="the-princess-knight"><span class="slider round"></span></label></li>
+        <li>The Heretic Royal <label class="switch"><input type="checkbox" id="the-heretic-royal"><span class="slider round"></span></label></li>
+    </ul>
+    
+</div>
+<script>
+    // Function to show content based on the selected section
+    function showContent(section) {
+        var content = document.getElementById('content'); // Gets the content element
+        var xhr = new XMLHttpRequest(); // Creates a new XMLHttpRequest object
+        xhr.open('GET', section + '.html', true); // Initializes a GET request
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                content.innerHTML = xhr.responseText; // Sets the content to the response text
+            }
+        };
+        xhr.send(); // Sends the request
+    }
+
+    // Function to save the state of checkboxes
+    function saveCheckboxState() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            localStorage.setItem(checkbox.id, checkbox.checked);
+        });
+    }
+
+    // Function to load the state of checkboxes
+    function loadCheckboxState() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            var checked = localStorage.getItem(checkbox.id) === 'true';
+            checkbox.checked = checked;
+        });
+    }
+
+    // Save checkbox state on change
+    document.addEventListener('DOMContentLoaded', function() {
+        loadCheckboxState();
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', saveCheckboxState);
+        });
+    });
+
+    // Function to filter books based on the selected filter
+    function filterBooks() {
+        var filter = document.getElementById('filter').value;
+        var books = document.querySelectorAll('.content ul li');
+        books.forEach(function(book) {
+            var checkbox = book.querySelector('input[type="checkbox"]');
+            if (filter === 'all') {
+                book.style.display = 'flex';
+            } else if (filter === 'owned' && checkbox.checked) {
+                book.style.display = 'flex';
+            } else if (filter === 'not-owned' && !checkbox.checked) {
+                book.style.display = 'flex';
+            } else {
+                book.style.display = 'none';
+            }
+        });
+    }
+</script>
+</body>
+</html>
